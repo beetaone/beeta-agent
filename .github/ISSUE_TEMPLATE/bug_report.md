@@ -24,7 +24,7 @@ A clear and concise description of what you expected to happen.
 If applicable, add screenshots to help explain your problem.
 
 **Logs**
-Agent logs - can be acquired from `/var/lib/weeve-agent/Weeve_Agent.log`
+Agent logs - can be acquired from `/var/lib/beeta-agent/beeta_Agent.log`
 
 **Environment (please complete the following information):**
  - Device: [e.g. RaspberryPi]

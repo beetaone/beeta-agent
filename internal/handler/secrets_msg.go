@@ -4,7 +4,7 @@ import (
 	mqtt "github.com/eclipse/paho.mqtt.golang"
 	log "github.com/sirupsen/logrus"
 
-	"github.com/weeveiot/weeve-agent/internal/secret"
+	"github.com/beetaone/beeta-agent/internal/secret"
 )
 
 var OrgPrivKeyHandler mqtt.MessageHandler = func(client mqtt.Client, msg mqtt.Message) {

@@ -39,7 +39,7 @@ jobs:
           aws-region: eu-central-1
 
       - name: Check out APT repo contents
-        run: aws s3 sync s3://weeve-agent-ppa apt-repo
+        run: aws s3 sync s3://beeta-agent-ppa apt-repo
 
       - name: Build cross compilation binary
         run: make cross
@@ -56,4 +56,4 @@ jobs:
         run: ./release.sh create_sign_release
 
       - name: Release APT repo to S3
-        run: aws s3 sync apt-repo s3://weeve-agent-ppa
+        run: aws s3 sync apt-repo s3://beeta-agent-ppa

@@ -17,10 +17,10 @@ import (
 	"github.com/go-playground/validator/v10/non-standard/validators"
 	log "github.com/sirupsen/logrus"
 
-	"github.com/weeveiot/weeve-agent/internal/config"
-	"github.com/weeveiot/weeve-agent/internal/model"
-	"github.com/weeveiot/weeve-agent/internal/secret"
-	traceutility "github.com/weeveiot/weeve-agent/internal/utility/trace"
+	"github.com/beetaone/beeta-agent/internal/config"
+	"github.com/beetaone/beeta-agent/internal/model"
+	"github.com/beetaone/beeta-agent/internal/secret"
+	traceutility "github.com/beetaone/beeta-agent/internal/utility/trace"
 )
 
 type Manifest struct {

@@ -22,7 +22,7 @@ type Params struct {
 	Stdout       bool   `long:"out" description:"Print logs to stdout"`
 	ConfigPath   string `long:"config" description:"Path to the .json config file"`
 	ManifestPath string `long:"manifest" description:"Path to the .json manifest file"`
-	Delete       bool   `long:"delete" short:"d" description:"Remove node from weeve manager (when uninstalling the agent)"`
+	Delete       bool   `long:"delete" short:"d" description:"Remove node from beeta manager (when uninstalling the agent)"`
 }
 
 type ManifestUniqueID struct {

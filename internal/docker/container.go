@@ -12,9 +12,9 @@ import (
 	"github.com/docker/docker/client"
 	log "github.com/sirupsen/logrus"
 
-	"github.com/weeveiot/weeve-agent/internal/manifest"
-	"github.com/weeveiot/weeve-agent/internal/model"
-	traceutility "github.com/weeveiot/weeve-agent/internal/utility/trace"
+	"github.com/beetaone/beeta-agent/internal/manifest"
+	"github.com/beetaone/beeta-agent/internal/model"
+	traceutility "github.com/beetaone/beeta-agent/internal/utility/trace"
 )
 
 var ctx = context.Background()

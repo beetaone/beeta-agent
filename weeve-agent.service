@@ -1,6 +1,6 @@
 [Unit]
-Description=Weeve Agent
-ConditionPathExists=/etc/weeve-agent/agent-conf.json
+Description=beeta Agent
+ConditionPathExists=/etc/beeta-agent/agent-conf.json
 
 [Install]
 WantedBy=multi-user.target
@@ -9,5 +9,5 @@ WantedBy=multi-user.target
 Type=simple
 Restart=always
 RestartSec=60s
-WorkingDirectory=/var/lib/weeve-agent
-ExecStart=/usr/bin/weeve-agent --out --config /etc/weeve-agent/agent-conf.json
+WorkingDirectory=/var/lib/beeta-agent
+ExecStart=/usr/bin/beeta-agent --out --config /etc/beeta-agent/agent-conf.json

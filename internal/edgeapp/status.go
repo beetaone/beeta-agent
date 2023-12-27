@@ -8,13 +8,13 @@ import (
 	"github.com/shirou/gopsutil/v3/host"
 	"github.com/shirou/gopsutil/v3/mem"
 
-	"github.com/weeveiot/weeve-agent/internal/com"
-	"github.com/weeveiot/weeve-agent/internal/docker"
-	"github.com/weeveiot/weeve-agent/internal/manifest"
-	"github.com/weeveiot/weeve-agent/internal/model"
-	"github.com/weeveiot/weeve-agent/internal/secret"
-	ioutility "github.com/weeveiot/weeve-agent/internal/utility/io"
-	traceutility "github.com/weeveiot/weeve-agent/internal/utility/trace"
+	"github.com/beetaone/beeta-agent/internal/com"
+	"github.com/beetaone/beeta-agent/internal/docker"
+	"github.com/beetaone/beeta-agent/internal/manifest"
+	"github.com/beetaone/beeta-agent/internal/model"
+	"github.com/beetaone/beeta-agent/internal/secret"
+	ioutility "github.com/beetaone/beeta-agent/internal/utility/io"
+	traceutility "github.com/beetaone/beeta-agent/internal/utility/trace"
 )
 
 var nodeStatus string = model.NodeDisconnected

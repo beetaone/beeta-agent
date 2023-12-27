@@ -9,7 +9,7 @@ import (
 
 	log "github.com/sirupsen/logrus"
 
-	"github.com/weeveiot/weeve-agent/internal/model"
+	"github.com/beetaone/beeta-agent/internal/model"
 )
 
 type ParamStruct struct {
@@ -36,7 +36,7 @@ var Params = ParamStruct{
 	Password:     "",
 	RootCertPath: "ca.crt",
 	LogLevel:     "info",
-	LogFileName:  "Weeve_Agent.log",
+	LogFileName:  "beeta_Agent.log",
 	LogSize:      1,
 	LogAge:       1,
 	LogBackup:    5,

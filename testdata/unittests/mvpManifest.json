@@ -19,7 +19,7 @@
             "moduleID": "62bdb84e664ed72f8ecd88e1",
             "moduleName": "mqtt-ingress",
             "image": {
-                "name": "weevenetwork/mqtt-ingress",
+                "name": "beetanetwork/mqtt-ingress",
                 "tag": "V1",
                 "registry": {
                     "url": "https://hub.docker.com",
@@ -30,7 +30,7 @@
             "envs": [
                 {
                     "key": "MQTT_BROKER",
-                    "value": "mqtt://mapi-dev.weeve.engineering"
+                    "value": "mqtt://mapi-dev.beeta.engineering"
                 },
                 {
                     "key": "PORT",
@@ -73,7 +73,7 @@
             "moduleID": "62bdb84e664ed72f8ecd88cd",
             "moduleName": "fluctuation-filter",
             "image": {
-                "name": "weevenetwork/fluctuation-filter",
+                "name": "beetanetwork/fluctuation-filter",
                 "tag": "V1",
                 "registry": {
                     "url": "https://hub.docker.com",
@@ -104,7 +104,7 @@
             "moduleID": "62bdb84e664ed72f8ecd88d7",
             "moduleName": "comparison-filter",
             "image": {
-                "name": "weevenetwork/comparison-filter",
+                "name": "beetanetwork/comparison-filter",
                 "tag": "V1",
                 "registry": {
                     "url": "https://hub.docker.com",
@@ -135,7 +135,7 @@
             "moduleID": "62bdb84e664ed72f8ecd88e3",
             "moduleName": "slack-alert",
             "image": {
-                "name": "weevenetwork/slack-alert",
+                "name": "beetanetwork/slack-alert",
                 "tag": "V1",
                 "registry": {
                     "url": "https://hub.docker.com",

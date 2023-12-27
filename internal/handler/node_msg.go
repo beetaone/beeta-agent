@@ -4,8 +4,8 @@ import (
 	mqtt "github.com/eclipse/paho.mqtt.golang"
 	log "github.com/sirupsen/logrus"
 
-	"github.com/weeveiot/weeve-agent/internal/edgeapp"
-	"github.com/weeveiot/weeve-agent/internal/model"
+	"github.com/beetaone/beeta-agent/internal/edgeapp"
+	"github.com/beetaone/beeta-agent/internal/model"
 )
 
 var NodeDeleteHandler mqtt.MessageHandler = func(client mqtt.Client, msg mqtt.Message) {

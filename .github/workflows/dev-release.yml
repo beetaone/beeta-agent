@@ -37,7 +37,7 @@ jobs:
         run: make cross
 
       - name: Copy contents to be ported to s3
-        run: mv bin/* weeve-agent.service weeve-agent-installer.sh weeve-agent-uninstaller.sh ./installer-contents
+        run: mv bin/* beeta-agent.service beeta-agent-installer.sh beeta-agent-uninstaller.sh ./installer-contents
 
       - name: Directory to installer-contents
         run: ls -la ./installer-contents
@@ -45,7 +45,7 @@ jobs:
       - name: Release Binary to S3
         uses: jakejarvis/s3-sync-action@master
         env:
-          AWS_S3_BUCKET: weeve-agent-dev
+          AWS_S3_BUCKET: beeta-agent-dev
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_REGION: eu-central-1
