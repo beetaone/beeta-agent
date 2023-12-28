@@ -24,7 +24,7 @@ jobs:
         run: make cross
 
       - name: Copy contents to be ported to s3
-        run: mv bin/* weeve-agent.service weeve-agent-installer.sh weeve-agent-uninstaller.sh ./installer-contents
+        run: mv bin/*beeta-agent.servicebeeta-agent-installer.shbeeta-agent-uninstaller.sh ./installer-contents
      
       - name: Directory to installer-contents
         run: ls -la ./installer-contents
