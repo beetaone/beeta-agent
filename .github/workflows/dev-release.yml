@@ -17,16 +17,23 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Create build directory
-        run: mkdir -p installer-contents
-
       - name: Build cross compilation binary
         run: make cross
 
-
-      - name: Archive dev artifacts for release from bin directory
+      - name: Archive dev artifacts for linux amd64
         uses: actions/upload-artifact@v3
-        with: 
-          name: dev-artifacts
-          path: bin
-          
+        with:
+            name: beeta-agent-linux-amd64
+            path: bin/beeta-agent-linux-amd64
+
+      - name: Archive dev artifacts for linux arm64
+        uses: actions/upload-artifact@v3
+        with:
+            name: beeta-agent-linux-arm64
+            path: bin/beeta-agent-linux-arm64
+    
+      - name: Archive dev artifacts for linux arm
+        uses: actions/upload-artifact@v3
+        with:
+            name: beeta-agent-linux-arm
+            path: bin/beeta-agent-linux-arm
