@@ -23,15 +23,10 @@ jobs:
       - name: Build cross compilation binary
         run: make cross
 
-      - name: Copy contents to be ported to s3
-        run: mv bin/* beeta-agent.service beeta-agent-installer.sh beeta-agent-uninstaller.sh ./installer-contents
-     
-      - name: Directory to installer-contents
-        run: ls -la ./installer-contents
 
-      - name: Archive dev artifacts
+      - name: Archive dev artifacts for release from bin directory
         uses: actions/upload-artifact@v3
-        with:
-          name: installer-contents
-          path: ./installer-contents
-        
+        with: 
+          name: dev-artifacts
+          path: bin
+          
