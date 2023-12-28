@@ -11,3 +11,6 @@
 *.jsonl
 *.log
 beeta-agent/
+
+// macos files
+.DS_Store
