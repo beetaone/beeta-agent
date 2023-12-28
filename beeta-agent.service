@@ -1,0 +1,13 @@
+[Unit]
+Description=beeta Agent
+ConditionPathExists=/etc/beeta-agent/agent-conf.json
+
+[Install]
+WantedBy=multi-user.target
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=60s
+WorkingDirectory=/var/lib/beeta-agent
+ExecStart=/usr/bin/beeta-agent --out --config /etc/beeta-agent/agent-conf.json

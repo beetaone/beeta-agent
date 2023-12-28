@@ -11,8 +11,8 @@ import (
 	mqtt "github.com/eclipse/paho.mqtt.golang"
 	log "github.com/sirupsen/logrus"
 
-	"github.com/weeveiot/weeve-agent/internal/config"
-	traceutility "github.com/weeveiot/weeve-agent/internal/utility/trace"
+	"github.com/beetaone/beeta-agent/internal/config"
+	traceutility "github.com/beetaone/beeta-agent/internal/utility/trace"
 )
 
 const (

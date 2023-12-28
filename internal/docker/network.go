@@ -13,8 +13,8 @@ import (
 	"github.com/docker/docker/api/types/filters"
 	log "github.com/sirupsen/logrus"
 
-	"github.com/weeveiot/weeve-agent/internal/model"
-	traceutility "github.com/weeveiot/weeve-agent/internal/utility/trace"
+	"github.com/beetaone/beeta-agent/internal/model"
+	traceutility "github.com/beetaone/beeta-agent/internal/utility/trace"
 )
 
 // Network name constraints

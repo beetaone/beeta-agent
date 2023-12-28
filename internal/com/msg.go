@@ -3,7 +3,7 @@ package com
 import (
 	"time"
 
-	"github.com/weeveiot/weeve-agent/internal/model"
+	"github.com/beetaone/beeta-agent/internal/model"
 )
 
 type EdgeAppLogMsg struct {

@@ -21,7 +21,7 @@
             "moduleID": "62be26cf664ed72f8ecda630",
             "moduleName": "mqtt-ingress",
             "image": {
-                "name": "weevenetwork/mqtt-ingress",
+                "name": "beetanetwork/mqtt-ingress",
                 "tag": "V1",
                 "registry": {
                     "url": "https://hub.docker.com",
@@ -32,7 +32,7 @@
             "envs": [
                 {
                     "key": "MQTT_BROKER",
-                    "value": "mqtt://mapi-dev.weeve.engineering"
+                    "value": "mqtt://mapi-dev.beeta.engineering"
                 },
                 {
                     "key": "PORT",
@@ -44,7 +44,7 @@
                 },
                 {
                     "key": "TOPIC",
-                    "value": "weeve/faninfanout"
+                    "value": "beeta/faninfanout"
                 },
                 {
                     "key": "QOS",
@@ -60,7 +60,7 @@
             "moduleID": "62bdfdea664ed72f8ecda3ef",
             "moduleName": "comparison-filter",
             "image": {
-                "name": "weevenetwork/comparison-filter",
+                "name": "beetanetwork/comparison-filter",
                 "tag": "V1",
                 "registry": {
                     "url": "https://hub.docker.com",
@@ -91,7 +91,7 @@
             "moduleID": "62be085d664ed72f8ecda504",
             "moduleName": "fluctuation-filter",
             "image": {
-                "name": "weevenetwork/fluctuation-filter",
+                "name": "beetanetwork/fluctuation-filter",
                 "tag": "V1",
                 "registry": {
                     "url": "https://hub.docker.com",
@@ -122,7 +122,7 @@
             "moduleID": "62be13dc664ed72f8ecda5b1",
             "moduleName": "slack-alert",
             "image": {
-                "name": "weevenetwork/slack-alert",
+                "name": "beetanetwork/slack-alert",
                 "tag": "V1",
                 "registry": {
                     "url": "https://hub.docker.com",

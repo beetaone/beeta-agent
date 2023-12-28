@@ -15,14 +15,14 @@ import (
 	log "github.com/sirupsen/logrus"
 	"gopkg.in/natefinch/lumberjack.v2"
 
-	"github.com/weeveiot/weeve-agent/internal/com"
-	"github.com/weeveiot/weeve-agent/internal/config"
-	"github.com/weeveiot/weeve-agent/internal/docker"
-	"github.com/weeveiot/weeve-agent/internal/edgeapp"
-	"github.com/weeveiot/weeve-agent/internal/handler"
-	"github.com/weeveiot/weeve-agent/internal/manifest"
-	"github.com/weeveiot/weeve-agent/internal/model"
-	"github.com/weeveiot/weeve-agent/internal/secret"
+	"github.com/beetaone/beeta-agent/internal/com"
+	"github.com/beetaone/beeta-agent/internal/config"
+	"github.com/beetaone/beeta-agent/internal/docker"
+	"github.com/beetaone/beeta-agent/internal/edgeapp"
+	"github.com/beetaone/beeta-agent/internal/handler"
+	"github.com/beetaone/beeta-agent/internal/manifest"
+	"github.com/beetaone/beeta-agent/internal/model"
+	"github.com/beetaone/beeta-agent/internal/secret"
 )
 
 type PlainFormatter struct {
@@ -96,7 +96,7 @@ func main() {
 	go sendHeartbeat()
 	go sendEdgeAppLogs()
 
-	log.Info("Weeve-agent started and running...")
+	log.Info("beeta-agent started and running...")
 	// Cleanup on ending the process
 	<-done
 	err = com.DisconnectNode()
@@ -120,7 +120,7 @@ func parseCLIoptions() (bool, string, bool) {
 	}
 
 	if opt.Version {
-		fmt.Println("weeve agent -", model.Version)
+		fmt.Println("beeta agent -", model.Version)
 		os.Exit(0)
 	}
 
@@ -160,7 +160,7 @@ func setupLogging(toStdout bool) {
 		mqtt.DEBUG = golog.New(logOutput, "debug [MQTT]: ", golog.LstdFlags|golog.Lmsgprefix)
 	}
 
-	log.Info("weeve agent - ", model.Version)
+	log.Info("beeta agent - ", model.Version)
 	log.Info("Started logging")
 	log.Info("Logging level set to ", log.GetLevel())
 }

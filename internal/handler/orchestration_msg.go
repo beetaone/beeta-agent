@@ -6,9 +6,9 @@ import (
 	mqtt "github.com/eclipse/paho.mqtt.golang"
 	log "github.com/sirupsen/logrus"
 
-	"github.com/weeveiot/weeve-agent/internal/edgeapp"
-	"github.com/weeveiot/weeve-agent/internal/manifest"
-	traceutility "github.com/weeveiot/weeve-agent/internal/utility/trace"
+	"github.com/beetaone/beeta-agent/internal/edgeapp"
+	"github.com/beetaone/beeta-agent/internal/manifest"
+	traceutility "github.com/beetaone/beeta-agent/internal/utility/trace"
 )
 
 var OrchestrationHandler mqtt.MessageHandler = func(client mqtt.Client, msg mqtt.Message) {

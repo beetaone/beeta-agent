@@ -3,7 +3,7 @@ package com
 import (
 	log "github.com/sirupsen/logrus"
 
-	"github.com/weeveiot/weeve-agent/internal/config"
+	"github.com/beetaone/beeta-agent/internal/config"
 )
 
 type mqttHook struct {

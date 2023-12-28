@@ -18,7 +18,7 @@ import (
 
 	log "github.com/sirupsen/logrus"
 
-	traceutility "github.com/weeveiot/weeve-agent/internal/utility/trace"
+	traceutility "github.com/beetaone/beeta-agent/internal/utility/trace"
 )
 
 const keySize = 2048

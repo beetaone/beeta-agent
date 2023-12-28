@@ -1,6 +1,6 @@
-# weeve agent
+# beeta agent
 
-The weeve agent is a lightweight service to orchestrate edge applications.
+The beeta agent is a lightweight service to orchestrate edge applications.
 An edge application is defined in a manifest file and consists of several interconnected docker containers (modules), building a data pipeline.
 The edge applications are orchestrated by the Manager API (MAPI) over MQTT.
 With the orchestration messages MAPI is able to deploy, undeploy, stop, resume and remove edge applications on a node.
@@ -10,7 +10,7 @@ The agent periodically publishes status messages over MQTT back to MAPI to monit
 
 ### Requirements
 
-Right now weeve agent can run on Linux systems with a Docker installation on the following architectures:
+Right now beeta agent can run on Linux systems with a Docker installation on the following architectures:
 
 - ARM
 - ARM64
@@ -19,20 +19,20 @@ Right now weeve agent can run on Linux systems with a Docker installation on the
 ### Prerequisites
 
 The node needs to be registered first to set a node name and acquire a node ID from the database.
-For this follow our [quick setup guide](https://docs.weeve.engineering/guides/installing-the-weeve-agent).
+For this follow our [quick setup guide](https://docs.beeta.engineering/guides/installing-the-beeta-agent).
 If the node is already registered, please fill the fields `nodeId` and `nodeName` in the config file `agent-conf.json`.
 
 ### Installation via apt
-On Debian-based systems you can install the production ready version of weeve-agent using the apt manager. For this `agent-conf.json` configuration file needs to be placed in `/etc/weeve-agent/agent-conf.json`.
+On Debian-based systems you can install the production ready version of beeta-agent using the apt manager. For this `agent-conf.json` configuration file needs to be placed in `/etc/beeta-agent/agent-conf.json`.
 ```sh
-curl -fsSL http://weeve-agent-ppa.s3.amazonaws.com/weeve.gpg | sudo gpg --dearmor -o /usr/share/keyrings/weeve.gpg
+curl -fsSL http://beeta-agent-ppa.s3.amazonaws.com/beeta.gpg | sudo gpg --dearmor -o /usr/share/keyrings/beeta.gpg
 
 echo \
-  "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/weeve.gpg] http://weeve-agent-ppa.s3.amazonaws.com stable main" | \
-  sudo tee /etc/apt/sources.list.d/weeve-agent.list
+  "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/beeta.gpg] http://beeta-agent-ppa.s3.amazonaws.com stable main" | \
+  sudo tee /etc/apt/sources.list.d/beeta-agent.list
 
 sudo apt update
-sudo apt install weeve-agent
+sudo apt install beeta-agent
 ```
 
 ### Installation via script
@@ -40,7 +40,7 @@ sudo apt install weeve-agent
 Execute this one-line installer with the path to your node configuration file:
 
 ```bash
-curl -sO http://weeve-agent-dev.s3.amazonaws.com/weeve-agent-installer.sh && sh weeve-agent-installer.sh --configpath=<path-to-config-file> --release=prod
+curl -sO http://beeta-agent-dev.s3.amazonaws.com/beeta-agent-installer.sh && sh beeta-agent-installer.sh --configpath=<path-to-config-file> --release=prod
 ```
 
 The installer script can take the following optional parameters:
@@ -56,15 +56,15 @@ The installer script can take the following optional parameters:
 ### Uninstallation
 
 ```bash
-curl -sO http://weeve-agent-dev.s3.amazonaws.com/weeve-agent-uninstaller.sh && sh weeve-agent-uninstaller.sh
+curl -sO http://beeta-agent-dev.s3.amazonaws.com/beeta-agent-uninstaller.sh && sh beeta-agent-uninstaller.sh
 ```
 
 ## Parameters
 
-The weeve agent depends on configuration for execution.
-The configuration of the agent includes describing how the agent connects to a backend server, and the behaviour of the weeve agent.
+The beeta agent depends on configuration for execution.
+The configuration of the agent includes describing how the agent connects to a backend server, and the behaviour of the beeta agent.
 
-The weeve agent can be configured using a configuration file (by specifying `--config` flag), directly with command line arguments, or a combination of both.
+The beeta agent can be configured using a configuration file (by specifying `--config` flag), directly with command line arguments, or a combination of both.
 
 Configuration parameters are listed in the table below with defaults, or can be displayed with the `agent --help` command.
 
@@ -78,7 +78,7 @@ Configuration parameters are listed in the table below with defaults, or can be 
 | password    |       | false    | Password for TLS                                                | ""              |
 | rootcert    |       | false    | Path to MQTT broker (server) certificate                        | ca.crt          |
 | loglevel    | l     | false    | Set the logging level                                           | info            |
-| logfilename |       | false    | Set the name of the log file                                    | Weeve_Agent.log |
+| logfilename |       | false    | Set the name of the log file                                    | beeta_Agent.log |
 | logsize     |       | false    | Set the size of each log files (MB)                             | 1               |
 | logage      |       | false    | Set the time period to retain the log files (days)              | 1               |
 | logbackup   |       | false    | Set the max number of log files to retain                       | 5               |
@@ -92,7 +92,7 @@ Configuration parameters are listed in the table below with defaults, or can be 
 
 ## Documentation
 
-See the official technical documentation on https://docs.weeve.engineering/.
+See the official technical documentation on https://docs.beeta.engineering/.
 
 ## Developer guide
 
@@ -100,7 +100,7 @@ This section is a guide for developers intending to testing and developing the a
 
 ### Application architecture
 
-The weeve agent can be considered as a Docker orchestration layer with a purpose built business logic for a edge app - multiple containers in communication with each other.
+The beeta agent can be considered as a Docker orchestration layer with a purpose built business logic for a edge app - multiple containers in communication with each other.
 As such, the project relies on the [Golang Docker SDK](https://godoc.org/github.com/docker/docker).
 
 The main entry command initiates logging, parses flags, and passes control to the publish and subscribe MQTT client software.
@@ -137,7 +137,7 @@ make build-<your arch>
 And run it locally with your preffered configuration, for example
 
 ```bash
-./bin/weeve-agent-<os>-<arch> --out --notls --broker=mqtt://localhost:$MQTT_PORT --loglevel=debug --config agent-conf.json
+./bin/beeta-agent-<os>-<arch> --out --notls --broker=mqtt://localhost:$MQTT_PORT --loglevel=debug --config agent-conf.json
 ```
 
 The mosquitto client can be used to publish the messages to the agent.
@@ -165,7 +165,7 @@ go test -v ./...
 ## Contributing
 
 We welcome all contibutions to the project!
-  - if you found a bug or have an idea on how to improve weeve-agent, please open an [Issue](https://github.com/weeveiot/weeve-agent/issues)
-  - if you found a security vulnerability, please report it following our [security policy](https://github.com/weeveiot/weeve-agent/security/policy)
+  - if you found a bug or have an idea on how to improve beeta-agent, please open an [Issue](https://github.com/beetaone/beeta-agent/issues)
+  - if you found a security vulnerability, please report it following our [security policy](https://github.com/beetaone/beeta-agent/security/policy)
 
-In case you have any other questions or suggestion feel free to reach out to us under support@weeve.network or info@weeve.network.
+In case you have any other questions or suggestion feel free to reach out to us under support@beeta.one or info@beeta.one.

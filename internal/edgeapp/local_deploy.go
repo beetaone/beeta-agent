@@ -6,8 +6,8 @@ import (
 
 	log "github.com/sirupsen/logrus"
 
-	"github.com/weeveiot/weeve-agent/internal/manifest"
-	traceutility "github.com/weeveiot/weeve-agent/internal/utility/trace"
+	"github.com/beetaone/beeta-agent/internal/manifest"
+	traceutility "github.com/beetaone/beeta-agent/internal/utility/trace"
 )
 
 // Read local manifest file provided and deploy it

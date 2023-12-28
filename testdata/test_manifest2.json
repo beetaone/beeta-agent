@@ -16,7 +16,7 @@
             "moduleID": "62bdb84e664ed72f8ecd88e1",
             "moduleName": "mqtt-ingress",
             "image": {
-                "name": "weevenetwork/mqtt-ingress",
+                "name": "beetanetwork/mqtt-ingress",
                 "tag": "v1.0.0",
                 "registry": {
                     "url": "https://hub.docker.com",
@@ -60,7 +60,7 @@
             "moduleID": "62bdb84e664ed72f8ecd88d7",
             "moduleName": "comparison-filter",
             "image": {
-                "name": "weevenetwork/comparison-filter",
+                "name": "beetanetwork/comparison-filter",
                 "tag": "v1.0.0",
                 "registry": {
                     "url": "https://hub.docker.com",
@@ -94,7 +94,7 @@
             "moduleID": "62bdb84e664ed72f8ecd88e3",
             "moduleName": "slack-alert",
             "image": {
-                "name": "weevenetwork/slack-alert",
+                "name": "beetanetwork/slack-alert",
                 "tag": "v1.0.0",
                 "registry": {
                     "url": "https://hub.docker.com",

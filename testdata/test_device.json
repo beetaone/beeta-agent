@@ -65,7 +65,7 @@
                 }
             ],
             "image": {
-                "name": "weevenetwork/slack-alert",
+                "name": "beetanetwork/slack-alert",
                 "registry": {
                     "password": "",
                     "url": "https://hub.docker.com",

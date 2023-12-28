@@ -18,13 +18,13 @@ import (
 	log "github.com/sirupsen/logrus"
 	"github.com/stretchr/testify/assert"
 
-	"github.com/weeveiot/weeve-agent/internal/com"
-	"github.com/weeveiot/weeve-agent/internal/config"
-	"github.com/weeveiot/weeve-agent/internal/docker"
-	"github.com/weeveiot/weeve-agent/internal/edgeapp"
-	"github.com/weeveiot/weeve-agent/internal/handler"
-	"github.com/weeveiot/weeve-agent/internal/manifest"
-	"github.com/weeveiot/weeve-agent/internal/model"
+	"github.com/beetaone/beeta-agent/internal/com"
+	"github.com/beetaone/beeta-agent/internal/config"
+	"github.com/beetaone/beeta-agent/internal/docker"
+	"github.com/beetaone/beeta-agent/internal/edgeapp"
+	"github.com/beetaone/beeta-agent/internal/handler"
+	"github.com/beetaone/beeta-agent/internal/manifest"
+	"github.com/beetaone/beeta-agent/internal/model"
 )
 
 func init() {

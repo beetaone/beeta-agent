@@ -11,7 +11,7 @@ import (
 	"github.com/docker/go-connections/nat"
 	"github.com/stretchr/testify/assert"
 
-	"github.com/weeveiot/weeve-agent/internal/manifest"
+	"github.com/beetaone/beeta-agent/internal/manifest"
 )
 
 var manifestUniqueID struct {
@@ -37,16 +37,16 @@ func TestGetManifest(t *testing.T) {
 	assert.Equal(4, len(manifest.Modules))
 
 	assert.Equal(1, len(manifest.Modules[0].Labels))
-	assert.Equal("weevenetwork/mqtt-ingress:V1", manifest.Modules[0].ImageNameFull)
+	assert.Equal("beetanetwork/mqtt-ingress:V1", manifest.Modules[0].ImageNameFull)
 	assert.ElementsMatch(manifest.Modules[0].EnvArgs, []string{
-		"MQTT_BROKER=mqtt://mapi-dev.weeve.engineering",
+		"MQTT_BROKER=mqtt://mapi-dev.beeta.engineering",
 		"PORT=1883",
 		"PROTOCOL=mqtt",
 		"TOPIC=revpi_I14",
 		"QOS=0",
 		"LOG_LEVEL=INFO",
 		"MANIFEST_ID=62bef68d664ed72f8ecdd690",
-		"MODULE_NAME=weevenetwork/mqtt-ingress:V1",
+		"MODULE_NAME=beetanetwork/mqtt-ingress:V1",
 		"INGRESS_PORT=80",
 		"INGRESS_PATH=/",
 		"MODULE_TYPE=Input",
@@ -79,8 +79,8 @@ func TestGetManifest(t *testing.T) {
 
 	manifest.UpdateManifest("kunbus-demo-manifest_1d")
 	assert.Equal(15, len(manifest.Modules[0].EnvArgs))
-	assert.Contains(manifest.Modules[0].EnvArgs, "INGRESS_HOST=kunbus-demo-manifest_1d.weevenetwork_mqtt-ingress_V1.0")
-	assert.Contains(manifest.Modules[0].EnvArgs, "EGRESS_URLS=http://kunbus-demo-manifest_1d.weevenetwork_fluctuation-filter_V1.1:80/")
+	assert.Contains(manifest.Modules[0].EnvArgs, "INGRESS_HOST=kunbus-demo-manifest_1d.beetanetwork_mqtt-ingress_V1.0")
+	assert.Contains(manifest.Modules[0].EnvArgs, "EGRESS_URLS=http://kunbus-demo-manifest_1d.beetanetwork_fluctuation-filter_V1.1:80/")
 }
 
 func TestGetEdgeAppUniqueID(t *testing.T) {

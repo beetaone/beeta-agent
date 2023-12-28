@@ -1,4 +1,4 @@
-module github.com/weeveiot/weeve-agent
+module github.com/beetaone/beeta-agent
 
 go 1.20
 

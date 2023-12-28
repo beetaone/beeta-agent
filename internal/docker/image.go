@@ -9,7 +9,7 @@ import (
 	"github.com/docker/docker/api/types/filters"
 	"github.com/docker/docker/client"
 	"github.com/docker/docker/pkg/jsonmessage"
-	traceutility "github.com/weeveiot/weeve-agent/internal/utility/trace"
+	traceutility "github.com/beetaone/beeta-agent/internal/utility/trace"
 
 	log "github.com/sirupsen/logrus"
 )

@@ -24,7 +24,7 @@
             displayName: 'Serial Input',
             icon: 'https://icons-020-demo.s3.eu-central-1.amazonaws.com/mi_usb-serial_input.png',
             image: {
-                name: 'weevenetwork/serial-input',
+                name: 'beetanetwork/serial-input',
                 tag: 'v1.0.0',
                 registry: ObjectId('62d8375b0ade8248f29b6155')
             },
@@ -112,7 +112,7 @@
             displayName: 'Serial Data Decryptor',
             icon: 'https://icons-020-demo.s3.eu-central-1.amazonaws.com/mi_serial-data-decrypter_process.png',
             image: {
-                name: 'weevenetwork/serial-data-decryptor',
+                name: 'beetanetwork/serial-data-decryptor',
                 tag: 'v1.0.0',
                 registry: ObjectId('62d8375b0ade8248f29b6155')
             },
@@ -142,7 +142,7 @@
             displayName: 'Slack Alert',
             icon: 'https://icons-020-demo.s3.eu-central-1.amazonaws.com/mi_slack-alert_output.png',
             image: {
-                name: 'weevenetwork/slack-alert',
+                name: 'beetanetwork/slack-alert',
                 tag: 'v1.0.0',
                 registry: ObjectId('62d8375b0ade8248f29b6155')
             },

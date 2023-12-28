@@ -5,10 +5,10 @@ import (
 	"strings"
 	"time"
 
-	"github.com/weeveiot/weeve-agent/internal/com"
-	"github.com/weeveiot/weeve-agent/internal/docker"
-	"github.com/weeveiot/weeve-agent/internal/manifest"
-	traceutility "github.com/weeveiot/weeve-agent/internal/utility/trace"
+	"github.com/beetaone/beeta-agent/internal/com"
+	"github.com/beetaone/beeta-agent/internal/docker"
+	"github.com/beetaone/beeta-agent/internal/manifest"
+	traceutility "github.com/beetaone/beeta-agent/internal/utility/trace"
 )
 
 type logTimestamp time.Time
