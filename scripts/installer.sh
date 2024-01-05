@@ -14,6 +14,11 @@ print_logo() {
     echo "                                                  "
 }
 
+print_execute_instruction() {
+    echo "To execute the beeta-agent binary, run the following command:"
+    echo ""$BEETA_AGENT_DIR"/"$BINARY_NAME" --config "$CONFIG_FILE" 2>&1 &"
+}
+
 LOG_FILE=installer.log
 BEETA_AGENT_DIR="$PWD/beeta-agent"
 SERVICE_FILE=/lib/systemd/system/beeta-agent.service
@@ -29,45 +34,24 @@ log_err() {
     # logger in red color
     echo "\033[0;31m" '[' "$(date +"%Y-%m-%d %T")" ']:' ERROR "$@" "\033[0m" | sudo tee -a "$LOG_FILE"
 }
+
+log_warn() {
+    # logger in yellow color
+    echo "\033[0;33m" '[' "$(date +"%Y-%m-%d %T")" ']:' WARN "$@" "\033[0m" | sudo tee -a "$LOG_FILE"
+}
+
 empty_line() {
     echo ""
 }
 
-cleanup() {
-    log INFO Cleaning up ...
-    rm -rf "$BEETA_AGENT_DIR"
-    log INFO Removed beeta-agent directory
-    rm -rf "$SERVICE_FILE"
-    log INFO Removed beeta-agent service file
-    log INFO Cleanup done
-}
+get_os_arch_info() {
+    # log Detecting the OS of the machine ...
+    OS=$(uname -s)
+    log Detected OS: "$OS"
 
-validate_config_file_is_present() {
-    log INFO Validating if config file is present ...
-    if [ -f "$CONFIG_FILE" ]; then
-        log INFO Config file is present at "$CONFIG_FILE" ✅
-    else
-        log_err Config file is not present
-        log_err "exiting ..."
-        exit 1
-    fi
-}
-
-validate_docker_installation() {
-    log INFO Validating if docker is installed and running ...
-    if RESULT=$(docker ps 2>&1); then
-        log INFO Docker is installed and running ✅
-    else
-        log_err Docker is not installed or not running: "$RESULT"
-        log_err exiting ...
-        exit 1
-    fi
-}
-
-download_binary() {
-    log INFO Detecting the architecture of the machine ...
+    log Detecting the architecture of the machine ...
     ARCH=$(uname -m)
-    log INFO Architecture: "$ARCH"
+    log Architecture: "$ARCH"
 
     case "$ARCH" in
     "x86_64")
@@ -100,40 +84,89 @@ download_binary() {
         ;;
     esac
 
-    # downloading the respective beeta-agent binary
     BINARY_NAME="beeta-agent-$BINARY_OS-$BINARY_ARCH"
+    log Binary name: "$BINARY_NAME"
+}
+
+cleanup() {
+    log_warn Cleaning up ...
+    #    Kill all pids of beeta
+    sudo kill -9 $(ps aux | grep beeta | awk '{print $2}') 2>&1
+    log_warn Killed all beeta-agent processes
+    rm -rf "$BEETA_AGENT_DIR"
+    log_warn Removed beeta-agent directory
+    rm -rf "$SERVICE_FILE"
+    log_warn Removed beeta-agent service file
+    rm -rf "$LOG_FILE"
+    log_warn Removed installer log file
+    rm -rf beeta_Agent.log
+
+    log_warn Cleanup done
+}
+
+validate_config_file_is_present() {
+    log Validating if config file is present ...
+    if [ -f "$CONFIG_FILE" ]; then
+        log Config file is present at "$CONFIG_FILE" ✅
+    else
+        log_err Config file is not present
+        log_err "exiting ..."
+        exit 1
+    fi
+}
+
+validate_docker_installation() {
+    log Validating if docker is installed and running ...
+    if RESULT=$(docker ps 2>&1); then
+        log Docker is installed and running ✅
+    else
+        log_err Docker is not installed or not running: "$RESULT"
+        log_err exiting ...
+        exit 1
+    fi
+}
+
+download_binary() {
+
     if RESULT=$(mkdir -p "$BEETA_AGENT_DIR" &&
         cd "$BEETA_AGENT_DIR" &&
         wget $BASE_DOWNLOAD_URL/"$BINARY_NAME" 2>&1); then
-        log INFO beeta-agent binary downloaded
+        log beeta-agent binary downloaded
         chmod u+x "$BEETA_AGENT_DIR"/"$BINARY_NAME"
-        log INFO Changed file permission
+        log Changed file permission
     else
-        log_err Error while downloading the executable: "$RESULT"
+        log_err Error while downloading the executable:
+        # if not found, then print "the binary is not found for the current architecture and OS" else print the error
+        if echo "$RESULT" | grep -q "404 Not Found"; then
+            log_err "the binary is not found for the current architecture and OS - $BINARY_NAME"
+        else
+            log_err "$RESULT"
+        fi
         cleanup
         log_err "exiting ..."
         exit 1
     fi
 }
 
-execute() {
-    log INFO Executing the beeta-agent binary ...
-    if RESULT=$("$BEETA_AGENT_DIR"/"$BINARY_NAME" --config "$CONFIG_FILE" 2>&1); then
-        log INFO beeta-agent binary executed
-    else
-        log_err Error while executing the binary: "$RESULT"
-        cleanup
-        log_err "exiting ..."
-        exit 1
-    fi
-}
+# execute() {
+#     log Executing the beeta-agent binary ...
+#     log ""$BEETA_AGENT_DIR"/"$BINARY_NAME" --config "$CONFIG_FILE" 2>&1"
+#     if RESULT=$("$BEETA_AGENT_DIR"/"$BINARY_NAME" --config "$CONFIG_FILE" 2>&1); then
+#         log beeta-agent binary executed
+#     else
+#         log_err Error while executing the binary: "$RESULT"
+#         cleanup
+#         log_err "exiting ..."
+#         exit 1
+#     fi
+# }
 
 print_logo
+get_os_arch_info
+empty_line
 cleanup
 empty_line
-log INFO Detecting the OS of the machine ...
-OS=$(uname -s)
-log INFO Detected OS: "$OS"
+
 empty_line
 validate_config_file_is_present
 empty_line
@@ -141,5 +174,5 @@ validate_docker_installation
 empty_line
 download_binary
 empty_line
-execute
+print_execute_instruction
 empty_line
