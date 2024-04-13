@@ -305,11 +305,19 @@ func parseConnections(connectionsStringMap connectionsString) (connectionsInt, e
 	connectionsIntMap := make(connectionsInt)
 
 	for key, values := range connectionsStringMap {
+		// if values is nill or empty, skip
+		if values == nil || len(values) == 0 {
+			continue
+		}
 		var valuesInt []int
 		for _, value := range values {
 			valueInt, err := strconv.Atoi(value)
 			if err != nil {
 				return nil, traceutility.Wrap(err)
+			}
+			// if valueInt is negative, skip
+			if valueInt < 0 {
+				continue
 			}
 			valuesInt = append(valuesInt, valueInt)
 		}
