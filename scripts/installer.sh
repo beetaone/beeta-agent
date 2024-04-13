@@ -182,7 +182,7 @@ post_installation() {
     echo "Please check the instalation logs at $LOG_FILE"
     empty_line
     echo "To see the beeta-agent logs, run the following command:"
-    echo "journalctl -u beeta-agent"
+    echo "sudo tail -f $BEETA_AGENT_SERVICE_DIR/beeta_Agent.log"
     empty_line
     echo "Cleaning installation files ..."
     rm -rf "$BEETA_AGENT_DIR"
